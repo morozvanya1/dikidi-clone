@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Панель администратора</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="admin-body">
+  <div class="admin-wrap">
+    <header class="admin-top"><div><div class="eyebrow">PRIVATE AREA</div><h1>Панель управления</h1><p>Записи, мастера, услуги и графики.</p></div><button id="adminLogout" class="secondary">Выйти</button></header>
+    <section id="adminGate" class="card auth-gate"><h2>Вход в панель</h2><p>Доступ только для пользователей из списка администраторов Firebase.</p><form id="adminLoginForm"><label>Email<input id="adminEmail" type="email" required autocomplete="username"></label><label>Пароль<input id="adminPassword" type="password" required autocomplete="current-password"></label><button class="primary full" type="submit">Войти</button></form><div id="adminError" class="form-error"></div></section>
+    <div id="adminApp" class="hidden">
+      <nav class="admin-tabs"><button class="active" data-tab="dashboard">Записи</button><button data-tab="masters">Мастера</button><button data-tab="services">Услуги</button><button data-tab="reviews">Отзывы</button></nav>
+      <section class="admin-panel" id="tab-dashboard">
+        <div class="admin-toolbar"><div><h2>Журнал записей</h2><p class="muted">День / месяц / список.</p></div><div class="toolbar-actions"><input id="adminDate" type="date"><button id="newAppointment" class="primary">+ Добавить запись</button></div></div>
+        <div id="adminCalendar" class="admin-calendar"></div>
+        <div id="appointmentsTable" class="table-card"></div>
+      </section>
+      <section class="admin-panel hidden" id="tab-masters"><div class="admin-toolbar"><div><h2>Мастера</h2><p class="muted">Каждый мастер может быть открыт для онлайн-записи.</p></div><button id="addMaster" class="primary">+ Мастер</button></div><div id="mastersAdmin" class="admin-grid"></div></section>
+      <section class="admin-panel hidden" id="tab-services"><div class="admin-toolbar"><div><h2>Услуги</h2><p class="muted">Цена, длительность и доступность для записи.</p></div><button id="addService" class="primary">+ Услуга</button></div><div id="servicesAdmin" class="admin-grid"></div></section>
+      <section class="admin-panel hidden" id="tab-reviews"><div class="admin-toolbar"><div><h2>Отзывы</h2><p class="muted">Модерация клиентских отзывов.</p></div></div><div id="reviewsAdmin" class="admin-grid"></div></section>
+    </div>
+  </div>
+  <div class="modal-backdrop" id="adminModal"><div class="modal admin-modal"><button class="modal-close" data-close>×</button><div id="adminModalContent"></div></div></div>
+  <div id="toast" class="toast"></div>
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>

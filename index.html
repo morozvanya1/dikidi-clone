@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#68b7ee" />
+  <meta name="description" content="Онлайн-запись к мастеру маникюра и педикюра" />
+  <title>Анастасия Манянина — запись онлайн</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-row">
+      <button class="icon-button close-btn" aria-label="Закрыть" onclick="history.back()">×</button>
+      <button class="icon-button back-btn" aria-label="Назад" onclick="window.scrollTo({top:0,behavior:'smooth'})">‹</button>
+      <div class="brand-center">
+        <div class="location-line"><span class="lock">●</span> Онлайн-запись</div>
+        <div class="social-line">Instagram</div>
+      </div>
+      <button class="icon-button more-btn" aria-label="Меню" id="moreBtn">•••</button>
+    </div>
+    <div class="profile-head">
+      <div>
+        <h1>Анастасия Манянина</h1>
+        <div class="subtitle">Звенигово, Вершинина, 73</div>
+      </div>
+      <div class="profile-actions">
+        <button class="flag-btn" title="Русский">🇷🇺⌄</button>
+        <button class="avatar-mini" id="openAccount" title="Личный кабинет">◯</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-shell">
+    <section class="card profile-card">
+      <div class="profile-main">
+        <div class="avatar-wrap"><img src="assets/master.svg" alt="Фото мастера" /></div>
+        <div class="master-title">
+          <h2>Анастасия Манянина</h2>
+          <div class="muted">Вершинина, 73</div>
+        </div>
+        <button class="favorite" id="favoriteBtn" aria-label="Добавить в избранное">♡</button>
+        <button class="dots" aria-label="Еще">⋮</button>
+      </div>
+      <div class="contact-row">
+        <div class="phone">⌕ <span>+7 (987) 40•••••</span> <button class="link" id="showPhone">Показать</button></div>
+      </div>
+      <div class="rating-row">
+        <div class="vk">vk</div>
+        <div class="stars">★★★★★</div>
+        <div class="rating-score">5.0</div>
+        <button class="rating-link" id="reviewsLink">5 оценок</button>
+      </div>
+      <div class="profile-buttons">
+        <button class="chat-round" id="chatBtn">▤</button>
+        <button class="primary wide book-btn">Записаться</button>
+      </div>
+    </section>
+
+    <section class="card content-card">
+      <h2>Описание</h2>
+      <ul class="check-list">
+        <li>Маникюр и педикюр в Звенигово</li>
+        <li>Стерильные инструменты</li>
+        <li>По предварительной записи</li>
+      </ul>
+    </section>
+
+    <section class="card content-card map-card">
+      <h2>На карте</h2>
+      <div class="fake-map">
+        <div class="map-water"></div><div class="map-road r1"></div><div class="map-road r2"></div><div class="map-block b1"></div><div class="map-block b2"></div>
+        <button class="map-open" id="mapBtn">Открыть карту</button>
+      </div>
+    </section>
+
+    <section class="card content-card" id="servicesSection">
+      <div class="section-head"><h2>Услуги</h2><button class="view-all" id="allServices">Все</button></div>
+      <div id="servicesGrid" class="services-grid"></div>
+    </section>
+
+    <section class="card content-card" id="mastersSection">
+      <div class="section-head"><h2>Специалисты</h2></div>
+      <div class="masters-list" id="mastersList"></div>
+    </section>
+
+    <section class="card content-card">
+      <div class="section-head"><h2>Примеры работ</h2><button class="view-all">Все</button></div>
+      <div class="gallery-grid">
+        <div class="gallery-item g1">Nails</div><div class="gallery-item g2">♡</div><div class="gallery-item g3">Gloss</div><div class="gallery-item g4">Beauty</div>
+      </div>
+    </section>
+
+    <section class="card content-card reviews-section" id="reviewsSection">
+      <div class="section-head"><h2>Отзывы</h2><div class="review-stars">★★★★★</div></div>
+      <div id="reviewsList"></div>
+      <button class="secondary full" id="writeReview">Оставить отзыв</button>
+    </section>
+
+    <section class="card content-card details-card">
+      <h2>Контакты и график</h2>
+      <div class="detail-grid">
+        <div><span class="detail-label">Адрес</span><b>Вершинина, 73</b></div>
+        <div><span class="detail-label">Город</span><b>Звенигово</b></div>
+        <div><span class="detail-label">Запись</span><b>По предварительной записи</b></div>
+        <div><span class="detail-label">Режим</span><b>Ежедневно по записи</b></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="sticky-booking"><button class="chat-round" id="stickyChat">▤</button><button class="primary wide book-btn">Записаться</button></div>
+
+  <div class="modal-backdrop" id="authModal"><div class="modal auth-modal"><button class="modal-close" data-close>×</button><div id="authContent"></div></div></div>
+  <div class="modal-backdrop" id="bookingModal"><div class="modal booking-modal"><button class="modal-close" data-close>×</button><div class="modal-title"><span class="eyebrow">ОНЛАЙН-ЗАПИСЬ</span><h2>Запись к мастеру</h2><p>Выберите услугу, дату и свободное время.</p></div><div id="bookingSteps"></div></div></div>
+  <div class="modal-backdrop" id="simpleModal"><div class="modal"><button class="modal-close" data-close>×</button><div id="simpleModalContent"></div></div></div>
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/auth.js"></script>
+  <script type="module" src="js/calendar.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
